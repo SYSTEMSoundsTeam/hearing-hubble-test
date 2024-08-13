@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./styles/output.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/style.css" rel="stylesheet" type="text/css" />
+    <title>TODO</title>
+</head>
+<body>
+    <div>
+        <h1>Hello</h1>
+        <select id="imageDropdown">
+            <option value="ngc1850-blue">NGC1850-Blue</option>
+            <option value="acos295">acos295</option>
+        </select>
+    </div>
+    <div id="canvas-container"></div>
+    <button id="playButton">Play</button>
+    <input type="range" min="0" max="100" value="50" class="slider" id="playheadSpeedSlider">
+    <div class="playhead-type playhead-type-selected" id="leftright">Left/Right</div>
+    <div class="playhead-type" id="updown">Up/Down</div>
+    <div class="playhead-type" id="polar">Polar</div>
+    <div class="playhead-type" id="radial">Radial</div>
+    <div class="reverse" id="reverse">Reverse</div>
+    <select id="mappingDropdown">
+        <option value="brightness">Brightness</option>
+        <option value="color">Color</option>
+    </select>
+    <select id="harmonyDropdown">
+        <option value="major">Major</option>
+        <option value="minor">Minor</option>
+        <option value="major pentatonic">Major Pentatonic</option>
+        <option value="minor pentatonic">Minor Pentatonic</option>
+    </select>
+    <select id="instrumentDropdown">
+        <option value="harp">Harp</option>
+        <option value="piano">Piano</option>
+    </select>
+    <select id="starsDropdown">
+        <option value="harp">Stars-Harp</option>
+        <option value="piano">Stars-Piano</option>
+    </select>
+    <script language="javascript" src="./libraries/p5/p5.js"></script>
+    <script language="javascript" src="./libraries/p5/p5.dom.js"></script>
+    <script language="javascript" src="./libraries/p5/p5.sound.js"></script>
+    <script language="javascript" src="./javascript/parameters.js"></script>
+    <script language="javascript" src="./javascript/ui.js"></script>
+    <script language="javascript" src="./javascript/classes.js"></script>
+    <script language="javascript" src="./javascript/Himage.js"></script> 
+    <script language="javascript" src="./javascript/Playhead.js"></script> 
+    <script language="javascript" src="./javascript/ImageSynth.js"></script> 
+    <!-- <script language="javascript" src="./javascript/Stars.js"></script>  -->
+    <script language="javascript" src="./javascript/StarSynth.js"></script> 
+    <script language="javascript" src="./javascript/StarAnimator.js"></script>
+    <script language="javascript" src="./javascript/sketch.js"></script>
+</body>
+</html>
