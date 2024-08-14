@@ -5,42 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./styles/output.css" rel="stylesheet" type="text/css" />
     <link href="./styles/style.css" rel="stylesheet" type="text/css" />
-    <title>TODO</title>
+    <title>Hearing Hubble</title>
 </head>
-<body>
-    <div>
-        <h1>Hello</h1>
-        <select id="imageDropdown">
+<body class="bg-black text-white">
+    <header class="flex flex-row justify-between items-center h-16"> 
+        <spam class="flex flex-col px-6 leading-6 text-2xl">
+            <h1>Hearing</h1>
+            <h1>Hubble</h1>
+        </spam>
+        <select class="text-white text-center bg-black w-60 px-4 py-0 border-2 rounded-md" id="imageDropdown">
             <option value="ngc1850-blue">NGC1850-Blue</option>
             <option value="acos295">acos295</option>
         </select>
-    </div>
-    <div id="canvas-container"></div>
-    <button id="playButton">Play</button>
-    <input type="range" min="0" max="100" value="50" class="slider" id="playheadSpeedSlider">
-    <div class="playhead-type playhead-type-selected" id="leftright">Left/Right</div>
-    <div class="playhead-type" id="updown">Up/Down</div>
-    <div class="playhead-type" id="polar">Polar</div>
-    <div class="playhead-type" id="radial">Radial</div>
-    <div class="reverse" id="reverse">Reverse</div>
-    <select id="mappingDropdown">
-        <option value="brightness">Brightness</option>
-        <option value="color">Color</option>
-    </select>
-    <select id="harmonyDropdown">
-        <option value="major">Major</option>
-        <option value="minor">Minor</option>
-        <option value="major pentatonic">Major Pentatonic</option>
-        <option value="minor pentatonic">Minor Pentatonic</option>
-    </select>
-    <select id="instrumentDropdown">
-        <option value="harp">Harp</option>
-        <option value="piano">Piano</option>
-    </select>
-    <select id="starsDropdown">
-        <option value="harp">Stars-Harp</option>
-        <option value="piano">Stars-Piano</option>
-    </select>
+        <span class="px-6">NASA LOGO</span>
+    </header>
+    <section class="flex flex-row justify-evenly">
+        <div class="basis-1/3 py-6 px-6">
+            <h2 class="text-xl" id="imageTitle">NAME OF IMAGE</h2>
+            <p class="py-3" id="imageDescription">About the image</p>
+        </div>
+         <div class="basis-1/3 shadow-md shadow-white" id="canvas-container"></div>
+        <section class="flex flex-col  items-center basis-1/3 py-6">
+            <div class="flex flex-col bg-black text-white">
+                <span class="flex flex-row">
+                    <div class="playhead-type playhead-type-selected border-l-4 border-t-4 border-r-2 border-b-2" id="leftright">Left/Right</div>
+                    <div class="playhead-type border-l-2 border-t-4 border-r-4 border-b-2" id="updown">Up/Down</div>
+                </span> 
+                <span class="flex flex-row">
+                    <div class="playhead-type border-l-4 border-t-2 border-r-2 border-b-4" id="polar">Polar</div>   
+                    <div class="playhead-type border-l-2 border-t-2 border-r-4 border-b-4" id="radial">Radial</div>
+                </span>
+            </div>
+            <div class="flex flex-row justify-center">
+                <div class="reverse bg-black text-white border-l-4 border-r-4 border-b-4" id="reverse">Reverse</div>
+            </div>
+            <div class="flex flex-col py-1 w-64">
+                <p class="">Mapping</p>
+                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="mappingDropdown">
+                    <option value="brightness">Brightness</option>
+                    <option value="color">Color</option>
+                </select>
+            </div>
+            <div class="flex flex-col py-1 w-64">
+                <p class="">Harmony</p>
+                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="harmonyDropdown">
+                    <option value="major">Major</option>
+                    <option value="minor">Minor</option>
+                    <option value="major pentatonic">Major Pentatonic</option>
+                    <option value="minor pentatonic">Minor Pentatonic</option>
+                </select>
+            </div>
+            <div class="flex flex-col py-1 w-64">
+                <p class="">Instrument</p>
+                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="instrumentDropdown">
+                    <option value="harp">Harp</option>
+                    <option value="piano">Piano</option>
+                </select>
+            </div>
+            <div class="flex flex-col py-1 w-64">
+                <p class="">Stars</p>
+                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="starsDropdown">
+                    <option value="harp">Harp</option>
+                    <!-- <option value="piano">Piano</option> -->
+                </select>
+            </div>  
+        </section>
+    </section>
+    <section class="flex flex-row justify-center items-center py-4 gap-48">
+        <button id="playButton"><img id="play-pause-image" src="./assets/icons/play_icon.svg" class="w-14" alt=""></button>
+        <div class="flex gap-1">
+            <p class="text-lg">Slow</p>
+            <input type="range" min="0" max="100" value="50" class="slider" id="playheadSpeedSlider">
+            <p class="text-lg">Fast</p>
+        </div>
+    </section>
     <script language="javascript" src="./libraries/p5/p5.js"></script>
     <script language="javascript" src="./libraries/p5/p5.dom.js"></script>
     <script language="javascript" src="./libraries/p5/p5.sound.js"></script>
@@ -53,6 +91,7 @@
     <!-- <script language="javascript" src="./javascript/Stars.js"></script>  -->
     <script language="javascript" src="./javascript/StarSynth.js"></script> 
     <script language="javascript" src="./javascript/StarAnimator.js"></script>
+    <script language="javascript" src="./javascript/imageInfoTemp.js"></script>
     <script language="javascript" src="./javascript/sketch.js"></script>
 </body>
 </html>

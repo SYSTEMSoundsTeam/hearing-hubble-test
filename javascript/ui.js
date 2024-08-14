@@ -14,14 +14,16 @@ imageDropdown.addEventListener('change', (event) => {
 });
 //Play Button
 let playButton = document.getElementById('playButton');
+let playPauseImage = document.getElementById('play-pause-image');
 playButton.addEventListener('click', () => { 
-    if (playButton.innerHTML == 'Play') {
-        playButton.innerHTML = 'Pause';
+    if (isPlaying == false) {
+        playPauseImage.src = "./assets/icons/pause_icon.svg"
+        // playButton.innerHTML = 'Pause';
         isPlaying = true;
         // loop();
         imageSynth.start();
     } else {
-        playButton.innerHTML = 'Play';
+        playPauseImage.src = "./assets/icons/play_icon.svg"
         isPlaying = false;
         //noLoop();
         imageSynth.stop();
