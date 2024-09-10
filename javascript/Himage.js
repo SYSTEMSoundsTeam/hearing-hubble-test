@@ -56,8 +56,8 @@ class Himage {
             this.width = canvasWidth;
             this.height = canvasWidth / this.aspectRatio;
         } else {
-            this.width = canvasHeight;
-            this.height = canvasHeight * this.aspectRatio;
+            this.width = canvasHeight * this.aspectRatio;
+            this.height = canvasHeight;
         }
         this.centerImage();
     }

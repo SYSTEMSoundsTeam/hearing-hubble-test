@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Image Dropdown</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      .dropdown {
+        position: relative;
+        display: inline-block;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+      .dropdown-content img {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+      }
+      .dropdown-content img:hover {
+        background-color: #f1f1f1;
+      }
+      .selected-image {
+        width: 100px;
+        height: auto;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dropdown">
+      <img
+        src="placeholder.jpg"
+        alt="Selected Image"
+        class="selected-image"
+        id="selected-image"
+      />
+      <div class="dropdown-content" id="dropdown-content">
+        <img src="./assets/thumbnails/acos295_tn.jpg" alt="Image 1" />
+        <img src="./assets/thumbnails/c86_tn.jpg" alt="Image 2" />
+        <img src="./assets/thumbnails/m94_tn.jpg" alt="Image 3" />
+        <img src="./assets/thumbnails/messier4_tn.jpg" alt="Image 4" />
+        <img src="./assets/thumbnails/monkeyhead_tn.jpg" alt="Image 5" />
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const dropdown = document.querySelector(".dropdown");
+        const dropdownContent = document.getElementById("dropdown-content");
+        const selectedImage = document.getElementById("selected-image");
+
+        selectedImage.addEventListener("click", function () {
+          dropdownContent.style.display =
+            dropdownContent.style.display === "block" ? "none" : "block";
+        });
+
+        dropdownContent.addEventListener("click", function (event) {
+          if (event.target.tagName === "IMG") {
+            selectedImage.src = event.target.src;
+            selectedImage.alt = event.target.alt;
+            dropdownContent.style.display = "none";
+          }
+        });
+
+        document.addEventListener("click", function (event) {
+          if (!dropdown.contains(event.target)) {
+            dropdownContent.style.display = "none";
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

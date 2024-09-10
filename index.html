@@ -1,96 +1,356 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="./styles/output.css" rel="stylesheet" type="text/css" />
     <link href="./styles/style.css" rel="stylesheet" type="text/css" />
     <title>Hearing Hubble</title>
-</head>
-<body class="bg-black text-white">
-    <header class="flex flex-row justify-between items-center h-16"> 
-        <spam class="flex flex-col px-6 leading-6 text-2xl">
-            <h1>Hearing</h1>
-            <h1>Hubble</h1>
-        </spam>
-        <select class="text-white text-center bg-black w-60 px-4 py-0 border-2 rounded-md" id="imageDropdown">
-            <option value="ngc1850-blue">NGC 1850</option>
-            <option value="acos295">ACO S 295</option>
-        </select>
-        <span class="px-6">NASA LOGO</span>
-    </header>
-    <section class="flex flex-row justify-evenly">
-        <div class="basis-1/3 py-6 px-6">
-            <h2 class="text-xl" id="imageTitle">NAME OF IMAGE</h2>
-            <p class="py-3" id="imageDescription">About the image</p>
+  </head>
+  <body class="bg-black text-white">
+    <div class="grid-container">
+      <div class="app-logo px-6 leading-6 text-2xl">
+        <h1>Hearing Hubble</h1>
+      </div>
+      <div class="image-picker-container">
+        <img class="left-arrow" src="./assets/icons/left-arrow.png" alt="" />
+        <div class="image-container">
+          <img
+            id="acos295"
+            class="not-selected selected"
+            src="./assets/thumbnails/acos295_tn.jpg"
+            alt="Image 1"
+          />
+          <img
+            id="c86"
+            class="not-selected right"
+            src="./assets/thumbnails/c86_tn.jpg"
+            alt="Image 2"
+          />
+          <img
+            id="m94"
+            class="not-selected"
+            src="./assets/thumbnails/m94_tn.jpg"
+            alt="Image 3"
+          />
+          <img
+            id="messier4"
+            class="not-selected"
+            src="./assets/thumbnails/messier4_tn.jpg"
+            alt="Image 4"
+          />
+          <img
+            id="monkeyhead"
+            class="not-selected"
+            src="./assets/thumbnails/monkeyhead_tn.jpg"
+            alt="Image 5"
+          />
+          <img
+            id="n44"
+            class="not-selected"
+            src="./assets/thumbnails/n44_tn.jpg"
+            alt="Image 6"
+          />
+          <img
+            id="ngc1850-blue"
+            class="not-selected"
+            src="./assets/thumbnails/ngc1850-blue_tn.jpg"
+            alt="Image 7"
+          />
+          <img
+            id="ngc3603"
+            class="not-selected"
+            src="./assets/thumbnails/ngc3603_tn.jpg"
+            alt="Image 8"
+          />
+          <img
+            id="ngc4535"
+            class="not-selected"
+            src="./assets/thumbnails/ngc4535_tn.jpg"
+            alt="Image 9"
+          />
+          <img
+            id="ngc4689"
+            class="not-selected left"
+            src="./assets/thumbnails/ngc4689_tn.jpg"
+            alt="Image 10"
+          />
         </div>
-         <div class="basis-1/3" id="canvas-container"></div>
-        <section class="flex flex-col  items-center basis-1/3 py-6">
-            <div class="flex flex-col bg-black text-white">
-                <span class="flex flex-row">
-                    <div class="playhead-type playhead-type-selected border-l-4 border-t-4 border-r-2 border-b-2" id="leftright">Left/Right</div>
-                    <div class="playhead-type border-l-2 border-t-4 border-r-4 border-b-2" id="updown">Up/Down</div>
-                </span> 
-                <span class="flex flex-row">
-                    <div class="playhead-type border-l-4 border-t-2 border-r-2 border-b-4" id="polar">Polar</div>   
-                    <div class="playhead-type border-l-2 border-t-2 border-r-4 border-b-4" id="radial">Radial</div>
-                </span>
+        <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="" />
+      </div>
+
+      <!-- <logo class="nasa-logo px-6">NASA LOGO</logo> -->
+      <img class="nasa-logo" src="./assets/thumbnails/nasa-logo.svg" alt="" />
+      <div class="image-info py-6 px-6">
+        <h2 class="w-auto text-xl" id="imageTitle">NAME OF IMAGE</h2>
+        <p class="py-3" id="imageDescription">About the image</p>
+      </div>
+      <div class="canvas w-auto" id="canvas-container"></div>
+      <section class="controls">
+        <p class="direction-header font-bold tracking-[0.2px]">Direction</p>
+        <div class="playhead">
+          <div class="flex flex-col bg-black text-white">
+            <span class="flex flex-row justify-center flex-wrap">
+              <div
+                class="scanLine flex items-center justify-center playhead-type playhead-type-selected border-l-[2px] border-t-[2px] border-r-[1px] border-b-[1px] rounded-tl-md"
+                id="leftright"
+              >
+                <p>Right</p>
+              </div>
+              <div
+                class="scanLine flex items-center justify-center playhead-type border-l-[1px] border-t-[2px] border-r-[2px] border-b-[1px] rounded-tr-md"
+                id="updown"
+              >
+                <p>Down</p>
+              </div>
+            </span>
+            <span class="flex flex-row flex-wrap justify-center">
+              <div
+                class="scanLine flex items-center justify-center playhead-type border-l-[2px] border-t-[1px] border-r-[1px] border-b-[2px] rounded-bl-md text-center"
+                id="cwccw"
+              >
+                <p>Clockwise</p>
+              </div>
+              <div
+                class="scanLine flex items-center justify-center playhead-type border-l-[1px] border-t-[1px] border-r-[2px] border-b-[2px] rounded-br-md"
+                id="outin"
+              >
+                <p>Out</p>
+              </div>
+            </span>
+          </div>
+          <div class="flex flex-row justify-center">
+            <div
+              class="flex items-center justify-center reverse bg-black text-white border-l-[2px] border-r-[2px] border-b-[2px] rounded-b-md"
+              id="reverse"
+            >
+              <p>Reverse</p>
             </div>
-            <div class="flex flex-row justify-center">
-                <div class="reverse bg-black text-white border-l-4 border-r-4 border-b-4" id="reverse">Reverse</div>
-            </div>
-            <div class="flex flex-col py-1 w-64">
-                <p class="">Mapping</p>
-                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="mappingDropdown">
-                    <option value="brightness">Brightness</option>
-                    <option value="color">Color</option>
-                </select>
-            </div>
-            <div class="flex flex-col py-1 w-64">
-                <p class="">Harmony</p>
-                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="harmonyDropdown">
-                    <option value="major">Major</option>
-                    <option value="minor">Minor</option>
-                    <option value="major pentatonic">Major Pentatonic</option>
-                    <option value="minor pentatonic">Minor Pentatonic</option>
-                </select>
-            </div>
-            <div class="flex flex-col py-1 w-64">
-                <p class="">Sound Wave</p>
-                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="instrumentDropdown">
-                    <option value="harp">Triangle</option>
-                </select>
-            </div>
-            <div class="flex flex-col py-1 w-64">
-                <p class="">Instrument</p>
-                <select class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md" id="starsDropdown">
-                    <option value="harp">Harp</option>
-                    <!-- <option value="piano">Piano</option> -->
-                </select>
-            </div>  
-        </section>
-    </section>
-    <section class="flex flex-row justify-center items-center py-6 gap-48">
-        <button id="playButton"><img id="play-pause-image" src="./assets/icons/play_icon.svg" class="w-14 hover:scale-105 active:scale-95" alt=""></button>
-        <div class="flex gap-1">
-            <p class="text-lg">Slow</p>
-            <input type="range" min="0" max="100" value="50" class="slider" id="playheadSpeedSlider">
-            <p class="text-lg">Fast</p>
+          </div>
         </div>
-    </section>
+        <div class="mappings">
+          <div class="py-1 w-64">
+            <p class="font-bold tracking-[0.2px]">Mapping</p>
+            <select
+              class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md"
+              id="mappingDropdown"
+            >
+              <option value="brightness">Brightness</option>
+              <option value="color">Color</option>
+            </select>
+          </div>
+          <div class="py-1 w-64">
+            <p class="font-bold tracking-[0.2px]">Harmony</p>
+            <select
+              class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md"
+              id="harmonyDropdown"
+            >
+              <option value="major">Happy</option>
+              <option value="minor">Sad</option>
+              <option value="major pentatonic">Relaxed</option>
+              <option value="minor pentatonic">Moody</option>
+              <option value="whole tone">Dreamy</option>
+              <option value="diminished">Menacing</option>
+              <option value="chromatic">Tense</option>
+              <option value="lydian">Mysterious</option>
+              <option value="mixolydian">Sassy</option>
+              <option value="byzantine">Mystical</option>
+              <option value="asavari">Reflective</option>
+              <option value="hijaz">Haunting</option>
+              <option value="egyptian">Majestic</option>
+            </select>
+          </div>
+          <div class="py-1 w-64">
+            <p class="font-bold tracking-[0.2px]">Sound Wave</p>
+            <select
+              class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md"
+              id="soundWaveDropdown"
+            >
+              <option value="sine">Sinewave</option>
+              <option value="triangle">Triangle</option>
+              <option value="square">Square</option>
+              <option value="sawtooth">Sawtooth</option>
+            </select>
+          </div>
+          <div class="py-1 w-64">
+            <p class="font-bold tracking-[0.2px]">Instrument</p>
+            <select
+              class="text-white text-center bg-black w-60 px-4 py-1 border-2 rounded-md"
+              id="instrumentDropdown"
+            >
+              <option value="harp">Harp</option>
+              <option value="piano">Piano</option>
+              <option value="guitar">Guitar</option>
+            </select>
+          </div>
+        </div>
+      </section>
+      <div class="play-speed-control-button">
+        <div>
+          <button id="playButton">
+            <img
+              id="play-pause-image"
+              src="./assets/icons/play_icon.svg"
+              class="hover:scale-105 active:scale-95"
+              alt=""
+            />
+          </button>
+        </div>
+        <div class="speed-slider">
+          <p class="">Slow</p>
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            class="slider"
+            id="playheadSpeedSlider"
+          />
+          <p class="">Fast</p>
+        </div>
+
+        <button
+          class="controls-button bg-blue-500 text-white rounded"
+          tabindex="-1"
+          hidden
+        >
+          Controls
+        </button>
+        <span class="controls-close-button">
+          <img src="./assets/icons/close-white.png" alt="" />
+        </span>
+      </div>
+      <div class="share px-6">
+        <button
+          id="openShareModal"
+          class="bg-blue-500 text-white px-10 py-2 rounded"
+          onclick="saveSonification()"
+        >
+          Share!
+        </button>
+      </div>
+      <div class="how-it-works px-10">
+        <button
+          id="openWorksModal"
+          class="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          How it works
+        </button>
+      </div>
+      <div class="nasa-web-link">
+        <p>Visit Us</p>
+        <a href="https://www.nasa.gov/hubble" target="_blank"
+          >nasa.gov/hubble</a
+        >
+      </div>
+      <div class="nasa-social-links">
+        <p><strong>@NASA</strong>Hubble</p>
+        <div class="nasa-social-icons">
+          <a href="https://www.facebook.com/NASA" target="_blank">
+            <img src="./assets/icons/facebook.png" alt="" />
+          </a>
+          <a href="https://www.instagram.com/nasa/" target="_blank">
+            <img src="./assets/icons/instagram.png" alt="" />
+          </a>
+          <a href="https://x.com/NASA" target="_blank">
+            <img src="./assets/icons/twitterx.png" alt="" />
+          </a>
+          <a href="https://www.youtube.com/@NASA" target="_blank">
+            <img src="./assets/icons/youtube.png" alt="" />
+          </a>
+        </div>
+      </div>
+
+      <!-- Sharing Modal -->
+      <div
+        id="shareModal"
+        class="fixed inset-0 items-center justify-center bg-black bg-opacity-50 hidden"
+      >
+        <div class="bg-white text-black p-6 rounded-lg shadow-lg relative">
+          <button id="closeShareModal" class="absolute top-2 right-2">
+            &times;
+          </button>
+          <h2 class="text-xl font-bold mb-4">Share your sonification!</h2>
+          <p class="mb-4" id="shareLink"></p>
+          <button
+            class="bg-blue-500 text-white px-4 py-2 rounded"
+            onclick="copySonificationLink()"
+            id="copyButton"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <!-- How it works Modal -->
+      <div
+        id="worksModal"
+        class="fixed inset-0 items-center justify-center bg-black bg-opacity-50 hidden"
+      >
+        <div
+          class="bg-white text-black p-6 rounded-lg shadow-lg relative how-it-works-textbox"
+        >
+          <button id="closeWorksModal" class="absolute top-2 right-2">
+            &times;
+          </button>
+          <h2 class="text-xl font-bold mb-4">How it works</h2>
+          <section class="mb-4">
+            <p>
+              We’re used to looking at astronomical data but we can listen to it
+              too! This is a type of <em>image sonification</em> - converting
+              the information used to make an image into sound. As the playhead
+              scans across the image the brightness and color data in the image
+              is used to control the sounds you hear.
+            </p>
+            <br />
+            <h3><strong>Mapping</strong></h3>
+            <p>
+              This sets which data will control the musical pitches you hear. If
+              ‘Brightness’ is selected then darker regions will produce lower
+              notes and brighter regions will produce higher pitched notes. If
+              ‘Color’ is selected then redder light will produce lower notes and
+              bluer light will produce higher notes.
+            </p>
+            <br />
+            <h3><strong>Harmony</strong></h3>
+            <p>
+              This controls the set of musical notes that are used. Each one
+              corresponds to a particular musical scale and has its one
+              personality.
+            </p>
+            <br />
+            <h3><strong>Soundwave</strong></h3>
+            <p>
+              This controls the type of soundwave used to hear extended regions
+              of light such as nebulae or large galaxies. These range from
+              smooth to harsher sounds.
+            </p>
+            <br />
+            <h3><strong>Instrument</strong></h3>
+            <p>
+              This controls the musical instrument used to hear small, compact
+              sources of light such as stars or distant galaxies.
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+
     <script language="javascript" src="./libraries/p5/p5.js"></script>
     <script language="javascript" src="./libraries/p5/p5.dom.js"></script>
     <script language="javascript" src="./libraries/p5/p5.sound.js"></script>
     <script language="javascript" src="./javascript/parameters.js"></script>
     <script language="javascript" src="./javascript/ui.js"></script>
     <script language="javascript" src="./javascript/classes.js"></script>
-    <script language="javascript" src="./javascript/Himage.js"></script> 
-    <script language="javascript" src="./javascript/Playhead.js"></script> 
-    <script language="javascript" src="./javascript/ImageSynth.js"></script> 
+    <script language="javascript" src="./javascript/Himage.js"></script>
+    <script language="javascript" src="./javascript/Playhead.js"></script>
+    <script language="javascript" src="./javascript/ImageSynth.js"></script>
     <!-- <script language="javascript" src="./javascript/Stars.js"></script>  -->
-    <script language="javascript" src="./javascript/StarSynth.js"></script> 
+    <script language="javascript" src="./javascript/StarSynth.js"></script>
     <script language="javascript" src="./javascript/StarAnimator.js"></script>
     <script language="javascript" src="./javascript/imageInfoTemp.js"></script>
+    <script language="javascript" src="./javascript/sharing.js"></script>
+    <script language="javascript" src="./javascript/modals.js"></script>
     <script language="javascript" src="./javascript/sketch.js"></script>
-</body>
+  </body>
 </html>

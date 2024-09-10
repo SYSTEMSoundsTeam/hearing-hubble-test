@@ -70,10 +70,10 @@ class Playhead {
             case 'updown':
                 this.drawLinear();
                 break;
-            case 'radial':
+            case 'outin':
                 this.drawRadial();
                 break;
-            case 'polar':
+            case 'cwccw':
                 this.drawPolar();
                 break;
             

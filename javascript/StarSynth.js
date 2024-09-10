@@ -11,18 +11,46 @@ class StarSynth {
     setHarmony(harmony){
         switch (harmony) {
             case 'major':
-                this.midiNumbers = [60, 62, 64, 65, 67, 69, 71, 72, 74, 76, 77, 79, 81, 83];
+                this.midiNumbers = [0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23];
                 break;  
             case 'minor':
-                this.midiNumbers = [60, 62, 63, 65, 67, 68, 70, 72, 74, 75, 77, 79, 80, 82];
+                this.midiNumbers = [0, 2, 3, 5, 7, 8, 10, 12, 14, 15, 17, 19, 20, 22];
                 break;  
             case 'major pentatonic':
-                this.midiNumbers = [60, 62, 64, 67, 69, 72, 74, 76, 79, 81];
+                this.midiNumbers = [0, 2, 4, 7, 9, 12, 14, 16, 19, 21];
                 break;
             case 'minor pentatonic':    
-                this.midiNumbers = [60, 63, 65, 67, 70, 72, 75, 77, 79, 82];
+                this.midiNumbers = [0, 3, 5, 7, 0, 12, 15, 17, 19, 22];
                 break;  
+            case 'whole tone':    
+                this.midiNumbers = [0, 2, 4, 6, 8, 10, 12, 14, 16, 18, 20];
+                break;  
+            case 'diminished':  
+                this.midiNumbers = [0, 2, 3, 5, 6, 8, 9, 11, 12, 14, 15, 17, 18, 20, 21, 23];
+                break;
+            case 'chromatic':
+                this.midiNumbers = Array.from({length: 24}, (_, i) => i);
+                break;
+            case 'lydian':
+                this.midiNumbers = [0, 2, 4, 6, 7, 9, 11, 12, 14, 16, 18, 19, 21, 23];
+                break;  
+            case 'mixolydian':
+                this.midiNumbers = [0, 2, 4, 5, 7, 9, 10, 12, 14, 16, 17, 19, 21, 22];
+                break; 
+            case 'byzantine':
+                this.midiNumbers = [0, 1, 4, 5, 7, 8, 11, 12, 13, 16, 17, 19, 20, 23];
+                break;  
+            case 'asavari': //1, b2, 4, 5, b6
+                this.midiNumbers = [0, 1, 5, 7, 8, 12, 13, 17, 19, 20, 24];
+                break;  
+            case 'hijaz': //1, b2, 3, 4, 5, b6, b7
+                this.midiNumbers = [0, 1, 4, 5, 7, 8, 10, 12, 13, 16, 17, 19, 20, 22];
+                break; 
+            case 'egyptian': //1, 2, 4, 5, b7
+                this.midiNumbers = [0, 2, 5, 7, 10, 12, 14, 17, 19, 22, 24];
+                break;
         }
+        this.midiNumbers = this.midiNumbers.map(number => number + start_note - 12);
     }
 
     sortStars() {
@@ -51,7 +79,7 @@ class StarSynth {
         };
 
         this.star_data = sortedData;
-        console.log('sorted by ' + sort_param);
+        //console.log('sorted by ' + sort_param);
     }
 
     sortStarsMatrix() {
@@ -85,7 +113,7 @@ class StarSynth {
         });
     
         this.star_data = sortedData;
-        console.log(`sorted by ${sort_param}`);
+        //console.log(`sorted by ${sort_param}`);
     }
 
     mapValueToMidi(value) {
