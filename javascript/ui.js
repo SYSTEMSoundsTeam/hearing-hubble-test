@@ -6,17 +6,30 @@ let imageSelectorArr = Array.from(
 ).map((element) => element);
 let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
+let infoTitle = document.getElementById("imageTitle");
+let infoDescription = document.getElementById("imageDescription");
+let infoLink = document.getElementById("infoLink");
+
 let image_name =
   imageSelectorArr[
     imageSelectorArr.findIndex((element) =>
       element.classList.contains("selected")
     )
   ].id;
+
+//
+function updateImageInfo(himage) {
+  infoTitle.innerHTML = himage.name;
+  infoDescription.innerHTML = himage.caption;
+  infoLink.href = himage.link;
+  infoLink.innerHTML = "More Info";
+}
+
 // let imageSelecting = [leftArrow, rightArrow];
 
-// imageSelecting.forEach((pick) => {
-//   pick.addEventListener("click", () => {
-//     console.log(pick);
+// imageSelecting.forEach((direction) => {
+//   direction.addEventListener("click", () => {
+//     console.log(direction);
 //   });
 // });
 
@@ -103,6 +116,7 @@ leftArrow.addEventListener("click", function (event) {
   } else {
     setImage(image_name);
   }
+  updateImageInfo(himage);
 });
 
 rightArrow.addEventListener("click", function (event) {
@@ -129,6 +143,7 @@ rightArrow.addEventListener("click", function (event) {
   } else {
     setImage(image_name);
   }
+  updateImageInfo(himage);
 });
 
 function imagePickerDeselectAll() {
@@ -140,15 +155,17 @@ function imagePickerDeselectAll() {
 }
 //Play Button
 let playButton = document.getElementById("playButton");
+let playButtonText = document.getElementById("play-button-text");
 let playPauseImage = document.getElementById("play-pause-image");
 playButton.addEventListener("click", () => {
   if (isPlaying == false) {
+    playButtonText.innerHTML = "Pause";
     playPauseImage.src = "./assets/icons/pause_icon.svg";
-    // playButton.innerHTML = 'Pause';
     isPlaying = true;
     // loop();
     imageSynth.start();
   } else {
+    playButtonText.innerHTML = "Play";
     playPauseImage.src = "./assets/icons/play_icon.svg";
     isPlaying = false;
     //noLoop();
@@ -228,7 +245,7 @@ harmonyDropdown.addEventListener("change", (event) => {
 let soundWaveDropdown = document.getElementById("soundWaveDropdown");
 let soundWaveDropdownValue = soundWaveDropdown.value;
 soundWaveDropdown.addEventListener("change", (event) => {
-    oscillator_type = event.target.value;
+  oscillator_type = event.target.value;
   imageSynth.setOscillatorType(oscillator_type);
 });
 //Instrument

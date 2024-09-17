@@ -21,7 +21,7 @@ let instrumentArr = Array.from(
   document.getElementById("instrumentDropdown")
 ).map((element) => element.value);
 let shareLink = document.getElementById("shareLink");
-let url = "127.0.0.1:5500/app/index.html";
+let localUrl = "127.0.0.1:5500/app/index.html";
 let githubUrl = "https://systemsoundsteam.github.io/hearing-hubble-test/";
 let shareUrl = window.location.href;
 let savedSonification;

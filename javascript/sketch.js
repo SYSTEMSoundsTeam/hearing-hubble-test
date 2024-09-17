@@ -39,6 +39,7 @@ function setup() {
 function setImage(image_name) {
     himage = himages[image_name];
     himage.resizeImage(canvasWidth,canvasHeight);
+    updateImageInfo(himage);
 
     playhead = new Playhead(himage);
     imageSynth = new ImageSynth(himage);

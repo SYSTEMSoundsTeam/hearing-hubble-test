@@ -35,7 +35,7 @@ class ImageSynth {
         this.chooseOscillatorData();
         this.n_data_rows = Object.keys(this.oscillator_grey_data).length;
         this.n_data_cols  = this.oscillator_grey_data[0].length;
-        console.log('set himage to ' + this.himage.filename);
+        //console.log('set himage to ' + this.himage.filename);
     }
 
     // setStartNote(start_note){

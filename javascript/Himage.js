@@ -24,25 +24,26 @@ class Himage {
 
         loadTable('./data/image_data.csv', 'csv', 'header', (table) => {
             this.image_info = table;
-            this.caption = this.getDescription();
+            this.getImageInfo();
         });
-        console.log('loaded ' + this.filename );
+        // console.log('loaded ' + this.filename );
 
     }
 
-    getDescription() {
+    getImageInfo() {
         const table = this.image_info;
         const filenameIndex = table.columns.indexOf('filename');
+        const nameIndex = table.columns.indexOf('name');
         const descriptionIndex = table.columns.indexOf('description');
-
+        const linkIndex = table.columns.indexOf('link');
         for (let i = 0; i < table.getRowCount(); i++) {
             const row = table.getRow(i);
             if (row.arr[filenameIndex] === this.filename) {
-                return row.arr[descriptionIndex];
+                this.name = row.arr[nameIndex];
+                this.caption = row.arr[descriptionIndex];
+                this.link = row.arr[linkIndex];
             }
         }
-
-        return 'Description not found';
     }
 
 

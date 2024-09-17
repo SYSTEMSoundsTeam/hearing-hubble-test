@@ -68,7 +68,7 @@ const noteNames = [
 ];
 
 const midiMin = 48;
-const midiMax = 96;
+const midiMax = 84;
 let sampleFileNames = [];
 let sampleNames = []; //numerical names of each star sound (MIDI numbers)
 let sampleDict = {}; //will contain names of each star sound and their samples
