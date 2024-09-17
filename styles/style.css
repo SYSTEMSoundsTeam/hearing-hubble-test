@@ -271,10 +271,11 @@ body {
     background-color: #8c6ff0;
     } */
 .play-button-text {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 .play-pause-image {
-  width: 2.8rem;
+  width: 2.5rem;
 }
 .play-pause-image:hover {
   scale: 1.05;
@@ -292,7 +293,8 @@ input[type="range"] {
   accent-color: #c098f8;
 }
 .speed-slider-text {
-  font-size: 1.8rem;
+  font-size: 1.3rem;
+  font-weight: 600;
 }
 .openShareModal {
   cursor: pointer;
