@@ -49,10 +49,16 @@ body {
   margin-bottom: 1rem /* 16px */;
 }
 .shareModal-copy-button {
-  background-color: #3b82f6;
+  background-color: #105bd8;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 0.25rem /* 4px */;
+}
+.shareModal-copy-button:hover {
+  background-color: #256de9;
+}
+.shareModal-copy-button:active {
+  background-color: #2a75ec;
 }
 .worksModal {
   position: fixed;
@@ -290,7 +296,7 @@ body {
   gap: 1rem;
 }
 input[type="range"] {
-  accent-color: #c098f8;
+  accent-color: #105bd8;
 }
 .speed-slider-text {
   font-size: 1.3rem;
@@ -298,7 +304,7 @@ input[type="range"] {
 }
 .openShareModal {
   cursor: pointer;
-  background-color: #c098f8;
+  background-color: #105bd8;
   color: white;
   width: 124px;
   height: 38px;
@@ -311,13 +317,13 @@ input[type="range"] {
   width: 1.5rem;
 }
 .openShareModal:hover {
-  background-color: #a78bf2;
+  background-color: #256de9;
 }
 .openShareModal:active {
-  background-color: #8c6ff0;
+  background-color: #2a75ec;
 }
 .openWorksModal {
-  background-color: #c098f8;
+  background-color: #105bd8;
   color: white;
   width: 124px;
   height: 38px;
@@ -325,10 +331,10 @@ input[type="range"] {
   border-radius: 0.25rem /* 4px */;
 }
 .openWorksModal:hover {
-  background-color: #a78bf2;
+  background-color: #256de9;
 }
 .openWorksModal:active {
-  background-color: #8c6ff0;
+  background-color: #2a75ec;
 }
 
 #canvas-container {
@@ -545,7 +551,7 @@ input[type="range"] {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #c098f8;
+    background-color: #105bd8;
     color: white;
     border-radius: 0.25rem /* 4px */;
   }
