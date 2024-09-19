@@ -79,8 +79,16 @@
         <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="" />
       </div>
 
-      <!-- <logo class="nasa-logo px-6">NASA LOGO</logo> -->
-      <img class="nasa-logo" src="./assets/thumbnails/nasa-logo.svg" alt="" />
+      <div class="nasa-logo-container">
+        <a href="https://www.nasa.gov/hubble" target="_blank">
+          <img
+            class="nasa-logo"
+            src="./assets/thumbnails/nasa-logo.svg"
+            alt="NASA Meatball Logo"
+          />
+        </a>
+      </div>
+
       <div class="image-info">
         <h2 class="imageTitle" id="imageTitle"></h2>
         <p class="imageDescription" id="imageDescription"></p>
@@ -88,7 +96,7 @@
           <a href="" target="_blank" id="infoLink" class="infoLinkText"></a>
         </p>
       </div>
-      <div class="canvas" id="canvas-container"></div>
+      <div class="canvas" id="canvas-container" title=""></div>
       <section class="controls">
         <p class="direction-header">Direction</p>
         <div class="playhead">
@@ -130,7 +138,7 @@
         </div>
         <div class="mappings">
           <div class="mapping-dropdown">
-            <p class="mapping-dropdown-header">Mapping</p>
+            <p class="mapping-dropdown-header">Data</p>
             <select class="mapping-dropdown-options" id="mappingDropdown">
               <option value="brightness">Brightness</option>
               <option value="color">Color</option>
@@ -174,16 +182,22 @@
         </div>
       </section>
       <div class="play-speed-control-button">
-        <div>
-          <button class="play-pause-button" id="playButton">
-            <p class="play-button-text" id="play-button-text">Play</p>
-            <img
-              id="play-pause-image"
-              src="./assets/icons/play_icon.svg"
-              class="play-pause-image"
-              alt=""
-            />
-          </button>
+        <div class="play-control-button-container">
+          <div>
+            <button class="play-pause-button" id="playButton">
+              <p class="play-button-text" id="play-button-text">Play</p>
+              <img
+                id="play-pause-image"
+                src="./assets/icons/play_icon.svg"
+                class="play-pause-image"
+                alt=""
+              />
+            </button>
+          </div>
+          <button class="controls-button" tabindex="-1" hidden>Controls</button>
+          <span class="controls-close-button">
+            <img src="./assets/icons/close-white.png" alt="" />
+          </span>
         </div>
         <div class="speed-slider">
           <p class="speed-slider-text">Slow</p>
@@ -197,46 +211,50 @@
           />
           <p class="speed-slider-text">Fast</p>
         </div>
-
-        <button class="controls-button" tabindex="-1" hidden>Controls</button>
-        <span class="controls-close-button">
-          <img src="./assets/icons/close-white.png" alt="" />
-        </span>
       </div>
-      <div class="share">
-        <button
-          id="openShareModal"
-          class="openShareModal"
-          onclick="saveSonification()"
-        >
-          Share
-          <img src="./assets/icons/share-icon.png" alt="" />
-        </button>
+      <div class="share-how-container">
+        <div class="share">
+          <button
+            id="openShareModal"
+            class="openShareModal"
+            onclick="saveSonification()"
+          >
+            Share
+            <img src="./assets/icons/share-icon.png" alt="" />
+          </button>
+        </div>
+        <div class="how-it-works">
+          <button id="openWorksModal" class="openWorksModal">
+            How it works
+          </button>
+        </div>
       </div>
-      <div class="how-it-works">
-        <button id="openWorksModal" class="openWorksModal">How it works</button>
-      </div>
-      <div class="nasa-web-link">
-        <p>Visit Us</p>
-        <a href="https://www.nasa.gov/hubble" target="_blank"
-          >nasa.gov/hubble</a
-        >
-      </div>
-      <div class="nasa-social-links">
-        <p><strong>@NASA</strong>Hubble</p>
-        <div class="nasa-social-icons">
-          <a href="https://www.facebook.com/NASA" target="_blank">
-            <img src="./assets/icons/facebook.png" alt="" />
-          </a>
-          <a href="https://www.instagram.com/nasa/" target="_blank">
-            <img src="./assets/icons/instagram.png" alt="" />
-          </a>
-          <a href="https://x.com/NASA" target="_blank">
-            <img src="./assets/icons/twitterx.png" alt="" />
-          </a>
-          <a href="https://www.youtube.com/@NASA" target="_blank">
-            <img src="./assets/icons/youtube.png" alt="" />
-          </a>
+      <div class="nasa-links-container">
+        <div class="nasa-web-link">
+          <p><strong>Visit Us</strong></p>
+          <a href="https://www.nasa.gov/hubble" target="_blank"
+            ><strong>nasa.gov/hubble</strong></a
+          >
+        </div>
+        <div class="nasa-social-links">
+          <p><strong>@NASA</strong>Hubble</p>
+          <div class="nasa-social-icons">
+            <a href="https://www.facebook.com/NASAHubble/" target="_blank">
+              <img src="./assets/icons/facebook.png" alt="" />
+            </a>
+            <a href="https://www.instagram.com/NASAHubble/" target="_blank">
+              <img src="./assets/icons/instagram.png" alt="" />
+            </a>
+            <a href="https://x.com/NASAHubble" target="_blank">
+              <img src="./assets/icons/twitterx.png" alt="" />
+            </a>
+            <a
+              href="https://www.youtube.com/playlist?list=PL3E861DC9F9A8F2E9"
+              target="_blank"
+            >
+              <img src="./assets/icons/youtube.png" alt="" />
+            </a>
+          </div>
         </div>
       </div>
 
@@ -270,20 +288,20 @@
               is used to control the sounds you hear.
             </p>
             <br />
-            <h3><strong>Mapping</strong></h3>
+            <h3><strong>Data</strong></h3>
             <p>
               This sets which data will control the musical pitches you hear. If
-              ‘Brightness’ is selected then darker regions will produce lower
-              notes and brighter regions will produce higher pitched notes. If
-              ‘Color’ is selected then redder light will produce lower notes and
-              bluer light will produce higher notes.
+              <em>Brightness</em> is selected then darker regions will produce
+              lower notes and brighter regions will produce higher pitched
+              notes. If <em>Color</em> is selected then redder light will
+              produce lower notes and bluer light will produce higher notes.
             </p>
             <br />
             <h3><strong>Harmony</strong></h3>
             <p>
-              This controls the set of musical notes that are used. Each one
-              corresponds to a particular musical scale and has its one
-              personality.
+              This controls the mood by setting which set of musical notes that
+              are used to represent the data. Each choice corresponds to a
+              particular musical scale.
             </p>
             <br />
             <h3><strong>Soundwave</strong></h3>

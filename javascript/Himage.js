@@ -36,12 +36,14 @@ class Himage {
         const nameIndex = table.columns.indexOf('name');
         const descriptionIndex = table.columns.indexOf('description');
         const linkIndex = table.columns.indexOf('link');
+        const altTextIndex = table.columns.indexOf('alt_text');
         for (let i = 0; i < table.getRowCount(); i++) {
             const row = table.getRow(i);
             if (row.arr[filenameIndex] === this.filename) {
                 this.name = row.arr[nameIndex];
                 this.caption = row.arr[descriptionIndex];
                 this.link = row.arr[linkIndex];
+                this.alt = row.arr[altTextIndex];
             }
         }
     }

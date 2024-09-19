@@ -7,7 +7,7 @@ const canvasHeight = document.getElementById("canvas-container").offsetHeight;
 const framerate = 30;
 
 const crossing_time_min = 1;
-const crossing_time_max = 60;
+const crossing_time_max = 90;
 
 let x = 0;
 let radius = 0;

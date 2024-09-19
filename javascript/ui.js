@@ -9,6 +9,7 @@ let rightArrow = document.querySelector(".right-arrow");
 let infoTitle = document.getElementById("imageTitle");
 let infoDescription = document.getElementById("imageDescription");
 let infoLink = document.getElementById("infoLink");
+let canvasAltText = document.getElementById("canvas-container");
 
 let image_name =
   imageSelectorArr[
@@ -23,6 +24,7 @@ function updateImageInfo(himage) {
   infoDescription.innerHTML = himage.caption;
   infoLink.href = himage.link;
   infoLink.innerHTML = "More Info";
+  canvasAltText.title = himage.alt;
 }
 
 // let imageSelecting = [leftArrow, rightArrow];
@@ -88,6 +90,17 @@ function updateImageInfo(himage) {
 //     }
 //   });
 // });
+function resetImage(image_name) {
+    if (isPlaying) {
+        imageSynth.stop();
+        setImage(image_name);
+        imageSynth.start();
+      } else {
+        setImage(image_name);
+      }
+      playhead.setSpeed(sliderValue);
+      updateImageInfo(himage);
+}
 
 leftArrow.addEventListener("click", function (event) {
   let currentIndex = imageSelectorArr.findIndex((element) =>
@@ -109,14 +122,7 @@ leftArrow.addEventListener("click", function (event) {
   imageSelectorArr[newSelected].classList.add("selected");
   imageSelectorArr[currentIndex].classList.add("right");
 
-  if (isPlaying) {
-    imageSynth.stop();
-    setImage(image_name);
-    imageSynth.start();
-  } else {
-    setImage(image_name);
-  }
-  updateImageInfo(himage);
+  resetImage(image_name);
 });
 
 rightArrow.addEventListener("click", function (event) {
@@ -136,14 +142,7 @@ rightArrow.addEventListener("click", function (event) {
   imageSelectorArr[newSelected].classList.add("selected");
   imageSelectorArr[currentIndex].classList.add("left");
 
-  if (isPlaying) {
-    imageSynth.stop();
-    setImage(image_name);
-    imageSynth.start();
-  } else {
-    setImage(image_name);
-  }
-  updateImageInfo(himage);
+  resetImage(image_name);
 });
 
 function imagePickerDeselectAll() {
@@ -173,6 +172,13 @@ playButton.addEventListener("click", () => {
   }
 });
 //Slider
+document.addEventListener("DOMContentLoaded", function () {
+  let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  if (isSafari) {
+    let slider = document.getElementById("playheadSpeedSlider");
+    slider.classList.add("safari-slider");
+  }
+});
 let slider = document.getElementById("playheadSpeedSlider");
 let sliderValue = slider.value;
 slider.addEventListener("input", (event) => {

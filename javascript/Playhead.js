@@ -13,7 +13,7 @@ class Playhead {
 
     // Add methods here
     setSpeed(speed) {
-        this.crossing_time = crossing_time_max + (crossing_time_min - crossing_time_max) * speed / 100;
+        this.crossing_time = crossing_time_max + (crossing_time_min - crossing_time_max) * (speed / 100)**0.5;
         delta_n_position = 1/this.crossing_time/framerate;
     }
 
