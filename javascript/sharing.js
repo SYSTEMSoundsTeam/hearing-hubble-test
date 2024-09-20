@@ -84,6 +84,7 @@ if (shareUrl.includes("?")) {
 
 //--------------------------------SAVE SONIFICATION--------------------------------//
 function saveSonification() {
+  shareLink.classList.remove("copy-animation");
   let imageIndex = imagesIdArr.indexOf(image_name);
   let scanLineIndex = scanLinesArr.indexOf(playhead_type);
   let mappingIndex = mappingArr.indexOf(mappingDropdown.value);
@@ -100,5 +101,6 @@ function copySonificationLink() {
   let copyText = shareLink.innerHTML;
   console.log(copyText);
   document.getElementById("copyButton").innerText = "Copied!";
+  shareLink.classList.add("copy-animation");
   navigator.clipboard.writeText(copyText);
 }
