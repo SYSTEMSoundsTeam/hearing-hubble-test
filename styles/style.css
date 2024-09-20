@@ -874,6 +874,7 @@ input[type="range"] {
   .share-link-container {
     flex-direction: column;
     text-align: center;
+    flex-wrap: wrap;
     gap: 0.3rem;
   }
   .shareModal-box h2 {
