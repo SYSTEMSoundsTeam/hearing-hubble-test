@@ -883,9 +883,14 @@ input[type="range"] {
     font-weight: 700;
   }
   .shareModal-box p {
-    width: 99%;
+    width: 100%;
+    box-sizing: border-box;
     font-size: 1rem /* 16px */;
     line-height: 1.5rem /* 24px */;
+  }
+  .share-link-container P {
+    width: 100%;
+    box-sizing: border-box;
   }
   .how-it-works-textbox {
     width: 90%;
