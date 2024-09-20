@@ -871,16 +871,19 @@ input[type="range"] {
     right: 0.8rem;
     font-size: 2rem;
   }
+  .share-link-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
   .shareModal-box h2 {
     font-size: 1.25rem /* 20px */;
     line-height: 1.75rem /* 28px */;
     font-weight: 700;
-    margin-bottom: 1rem /* 16px */;
   }
   .shareModal-box p {
     font-size: 1rem /* 16px */;
     line-height: 1.5rem /* 24px */;
-    margin-bottom: 1rem /* 16px */;
   }
   .how-it-works-textbox {
     width: 90%;
