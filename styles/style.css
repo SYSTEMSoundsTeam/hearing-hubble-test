@@ -234,10 +234,17 @@ body {
   justify-content: center;
   align-items: center;
 }
+.playhead-top-row-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
 .direction-header {
   font-weight: 700;
   letter-spacing: 0.2px;
-  padding-right: 11rem;
+  justify-self: start;
+  align-self: flex-end;
 }
 .playhead-options-box {
   width: 100%;
@@ -546,9 +553,7 @@ input[type="range"] {
   .infoLinkText {
     font-size: 0.9rem;
   }
-  .direction-header {
-    padding-right: 9.4rem;
-  }
+
   .playhead-type {
     width: 7rem;
     height: 7rem;
@@ -600,9 +605,7 @@ input[type="range"] {
   .infoLinkText {
     font-size: 0.9rem;
   }
-  .direction-header {
-    padding-right: 7.5rem;
-  }
+
   .playhead-type {
     width: 6rem;
     height: 6rem;
@@ -683,9 +686,7 @@ input[type="range"] {
   .infoLinkText {
     font-size: 0.9rem;
   }
-  .direction-header {
-    padding-right: 6.5rem;
-  }
+
   .playhead-type {
     width: 5.5rem;
     height: 5.5rem;
@@ -771,9 +772,7 @@ input[type="range"] {
   .infoLinkText {
     font-size: 0.9rem;
   }
-  .direction-header {
-    padding-right: 5.8rem;
-  }
+
   .playhead-type {
     width: 5rem;
     height: 5rem;
@@ -900,25 +899,26 @@ input[type="range"] {
     transition: left 0s, opacity 0.5s;
   }
   .controls-close-button img {
-    width: 3rem;
+    width: 2rem;
+  }
+  .playhead-top-row-container {
+    justify-content: space-between;
   }
   .controls-close-button {
-    display: inline-block;
-    position: fixed;
-    right: -100%;
+    display: block;
+    padding-left: 9rem;
     opacity: 0;
     background: var(--controls-background-color);
     transition: left 0s 0.5s, opacity 0.5s;
   }
   .controls-close-button.show {
-    right: 2.5rem;
-    top: 4.5rem;
     opacity: 1;
     transition: left 0s, opacity 0.5s;
   }
   .direction-header {
-    padding-right: 9.4rem;
+    padding-left: 1.6rem;
   }
+
   .playhead-type {
     width: 7rem;
     height: 7rem;

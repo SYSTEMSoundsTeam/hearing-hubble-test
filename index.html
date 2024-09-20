@@ -98,8 +98,13 @@
       </div>
       <div class="canvas" id="canvas-container" title=""></div>
       <section class="controls">
-        <p class="direction-header">Direction</p>
         <div class="playhead">
+          <div class="playhead-top-row-container">
+            <p class="direction-header">Direction</p>
+            <span class="controls-close-button">
+              <img src="./assets/icons/close-white.png" alt="" />
+            </span>
+          </div>
           <div class="playhead-options-box">
             <span class="playhead-options-row">
               <div
@@ -195,9 +200,6 @@
             </button>
           </div>
           <button class="controls-button" tabindex="-1" hidden>Controls</button>
-          <span class="controls-close-button">
-            <img src="./assets/icons/close-white.png" alt="" />
-          </span>
         </div>
         <div class="speed-slider">
           <p class="speed-slider-text">Slow</p>
@@ -263,6 +265,10 @@
         <div class="shareModal-box">
           <button id="closeShareModal" class="shareModal-close">&times;</button>
           <h2>Share your sonification!</h2>
+          <p>
+            Copy the URL and place it in your text message, email, or social
+            media post.
+          </p>
           <p class="mb-4" id="shareLink"></p>
           <button
             class="shareModal-copy-button"
@@ -281,20 +287,21 @@
           <h2>How it works</h2>
           <section>
             <p>
-              We’re used to looking at astronomical data but we can listen to it
-              too! This is a type of <em>image sonification</em> - converting
-              the information used to make an image into sound. As the playhead
-              scans across the image the brightness and color data in the image
-              is used to control the sounds you hear.
+              We’re used to looking at astronomical data, but we can listen to
+              it too! This is a type of <em>image sonification</em>, which
+              converts the information used to make an image into sound. As the
+              playhead scans across the image, the brightness and color data in
+              the image is used to control the sounds you hear.
             </p>
             <br />
             <h3><strong>Data</strong></h3>
             <p>
-              This sets which data will control the musical pitches you hear. If
-              <em>Brightness</em> is selected then darker regions will produce
-              lower notes and brighter regions will produce higher pitched
-              notes. If <em>Color</em> is selected then redder light will
-              produce lower notes and bluer light will produce higher notes.
+              This selects which data will control the musical pitches you hear.
+              If <em>Brightness</em> is selected, then darker regions will
+              produce lower notes and brighter regions will produce higher
+              pitched notes. If <em>Color</em> is selected then redder light
+              will produce lower notes and bluer light will produce higher
+              notes.
             </p>
             <br />
             <h3><strong>Harmony</strong></h3>

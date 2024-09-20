@@ -23,7 +23,7 @@ function updateImageInfo(himage) {
   infoTitle.innerHTML = himage.name;
   infoDescription.innerHTML = himage.caption;
   infoLink.href = himage.link;
-  infoLink.innerHTML = "More Info";
+  infoLink.innerHTML = "Learn More";
   canvasAltText.title = himage.alt;
 }
 
