@@ -872,6 +872,7 @@ input[type="range"] {
     font-size: 2rem;
   }
   .share-link-container {
+    max-height: 10rem;
     flex-direction: column;
     text-align: center;
     flex-wrap: wrap;
@@ -884,12 +885,12 @@ input[type="range"] {
   }
   .shareModal-box p {
     width: 100%;
-    box-sizing: border-box;
     font-size: 1rem /* 16px */;
     line-height: 1.5rem /* 24px */;
   }
   .share-link-container P {
     width: 100%;
+    text-wrap: wrap;
     box-sizing: border-box;
   }
   .how-it-works-textbox {
