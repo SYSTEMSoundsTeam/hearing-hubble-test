@@ -871,13 +871,6 @@ input[type="range"] {
     right: 0.8rem;
     font-size: 2rem;
   }
-  .share-link-container {
-    max-height: 10rem;
-    flex-direction: column;
-    text-align: center;
-    flex-wrap: wrap;
-    gap: 0.3rem;
-  }
   .shareModal-box h2 {
     font-size: 1.25rem /* 20px */;
     line-height: 1.75rem /* 28px */;
@@ -888,10 +881,14 @@ input[type="range"] {
     font-size: 1rem /* 16px */;
     line-height: 1.5rem /* 24px */;
   }
+  .share-link-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.3rem;
+  }
   .share-link-container P {
-    width: 100%;
-    text-wrap: wrap;
-    box-sizing: border-box;
+    padding: 0 0.2rem;
+    overflow-wrap: break-word;
   }
   .how-it-works-textbox {
     width: 90%;
@@ -905,6 +902,7 @@ input[type="range"] {
     margin-bottom: 1rem /* 16px */;
   }
   .how-it-works-textbox section {
+    max-height: 90%;
     font-size: 0.85rem;
     margin-bottom: 1rem /* 16px */;
   }
