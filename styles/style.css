@@ -57,9 +57,16 @@ body {
 }
 .shareModal-close {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  right: 0.7rem;
+  font-size: 2rem;
   cursor: pointer;
+}
+.shareModal-close:hover {
+  scale: 1.2;
+}
+.shareModal-close:active {
+  scale: 1;
 }
 .shareModal-box h2 {
   font-size: 1.25rem /* 20px */;
@@ -107,7 +114,7 @@ body {
   width: 5rem;
   background-color: var(--button-color);
   color: var(--button-text-color);
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
   border-radius: 0.25rem /* 4px */;
 }
 .shareModal-copy-button:hover {
@@ -134,9 +141,16 @@ body {
 }
 .closeWorksModal {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0;
+  right: 0.7rem;
+  font-size: 2rem;
   cursor: pointer;
+}
+.closeWorksModal:hover {
+  scale: 1.2;
+}
+.closeWorksModal:active {
+  scale: 1;
 }
 .how-it-works-textbox h2 {
   font-size: 1.25rem /* 20px */;
