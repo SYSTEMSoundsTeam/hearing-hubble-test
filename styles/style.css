@@ -412,7 +412,7 @@ body {
 .play-pause-button {
   cursor: pointer;
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 150px;
   height: 38px;
@@ -918,7 +918,6 @@ input[type="range"] {
   .how-it-works-textbox section {
     max-height: 90%;
     font-size: 0.85rem;
-    margin-bottom: 1rem /* 16px */;
   }
   .closeWorksModal {
     top: 0.1rem;
