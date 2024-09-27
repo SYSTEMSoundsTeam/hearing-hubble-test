@@ -18,7 +18,6 @@ class Himage {
         this.radial_grey_data = loadJSON('./data/' + image_path_filename +'_radial_grey.json'); //JSON data of star positions and sizes 
         this.radial_color_data = loadJSON('./data/' + image_path_filename +'_radial_color.json'); //JSON data of star positions and sizes 
         
-
         //load star data
         this.star_data = loadJSON('./data/' + image_path_filename +'_peaks.json'); //JSON data of star positions and sizes 
 
@@ -26,8 +25,6 @@ class Himage {
             this.image_info = table;
             this.getImageInfo();
         });
-        // console.log('loaded ' + this.filename );
-
     }
 
     getImageInfo() {
@@ -48,8 +45,6 @@ class Himage {
         }
     }
 
-
-    //
     resizeImage(canvasWidth,canvasHeight) {    
         
         this.aspectRatio = this.image.width/this.image.height;

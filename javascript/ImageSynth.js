@@ -1,15 +1,11 @@
 class ImageSynth {
     constructor(himage) {
         this.setHimage(himage);
-        //this.setStartNote(start_note)
         this.setHarmony(harmonyDropdownValue);
     
-
         this.gainNode = new p5.Gain();
         this.gainNode.amp(0.4);
         this.reverbNode = new p5.Reverb();
-        //this.reverbNode.process(this.gainNode, 3, 2); //duration, decay rate
-        //this.gainNode.connect();
 
         this.filterNode = new p5.LowPass();
         this.filterNode.freq(1000); // Set the initial frequency of the low pass filter, gets reset by column avergage
@@ -18,10 +14,8 @@ class ImageSynth {
         this.oscillators = [];
         for (let i=0;i < this.n_data_rows; i++){
             this.oscillators.push(new p5.Oscillator(oscillator_type));
-            //this.oscillators[i].amp(0);
             this.oscillators[i].disconnect(); // Disconnect the oscillators from the main output
             this.oscillators[i].connect(this.filterNode); // Connect the oscillators to the filterNode
-            //this.oscillators[i].connect(this.gainNode); // Connect the oscillators to the gainNode
         }
 
         this.filterNode.connect(this.reverbNode); // Connect the reverbNode to the filterNode
@@ -35,12 +29,7 @@ class ImageSynth {
         this.chooseOscillatorData();
         this.n_data_rows = Object.keys(this.oscillator_grey_data).length;
         this.n_data_cols  = this.oscillator_grey_data[0].length;
-        //console.log('set himage to ' + this.himage.filename);
     }
-
-    // setStartNote(start_note){
-    //     this.start_note = start_note; 
-    // }
 
     setHarmony(harmony){
         switch (harmony) {
@@ -96,7 +85,6 @@ class ImageSynth {
 
     chooseOscillatorData(){
         //Sets the data that's fed to the oscillators based on the scan type and direction
-        //could work in mapping here, and also change when mapping changes
         switch (playhead_type) {
             case 'leftright':
                 this.oscillator_grey_data = this.himage.LR_grey_data;
@@ -160,7 +148,6 @@ class ImageSynth {
 
     updateOscillators() {
         //oscillator data is always read right/left
-        //only needs to be run when n_position crosses i/n_data_cols (or faster if we want to interpolate)
         let image_data_col = int(n_position * this.n_data_cols);
         image_data_col = constrain(image_data_col, 0, this.n_data_cols - 1);
 
@@ -192,19 +179,6 @@ class ImageSynth {
     }
 
 }
-
-
-// function midiToFreq(midiNumber) {
-//     return 440 * Math.pow(2, (midiNumber - 69) / 12);
-// }
-
-// function note2midi(note) {
-//     noteName = note.substring(0, note.length-1)
-//     noteOctave = note.substring(note.length-1, note.length)
-//     midi = note2midiDict[noteName] + 12*noteOctave
-//     return midi
-// }
-  
   
 function midi2note(midi) {
     var octave = ((midi-6) / 12) - 1;

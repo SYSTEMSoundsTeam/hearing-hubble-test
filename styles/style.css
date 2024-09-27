@@ -501,7 +501,13 @@ input[type="range"] {
   background-color: var(--button-action-color);
 }
 /* ---------------------------------CANVAS-------------------------------------------- */
-#canvas-container {
+.canvas {
+  width: auto;
+  display: grid;
+}
+#canvas-container,
+#canvas-alt-text {
+  grid-area: 1 / 1;
   width: 600px;
   height: 600px;
 }
@@ -560,7 +566,6 @@ input[type="range"] {
   grid-row: 2/3;
 }
 .canvas {
-  width: auto;
   grid-column: 3/4;
   grid-row: 2/3;
 }
@@ -640,7 +645,8 @@ input[type="range"] {
   .nasa-logo {
     padding-top: 0.5rem;
   }
-  #canvas-container {
+  #canvas-container,
+  #canvas-alt-text {
     width: 550px;
     height: 550px;
   }
@@ -721,7 +727,8 @@ input[type="range"] {
   .nasa-logo-container img {
     width: 7rem;
   }
-  #canvas-container {
+  #canvas-container,
+  #canvas-alt-text {
     width: 500px;
     height: 500px;
   }
@@ -788,7 +795,8 @@ input[type="range"] {
   .grid-container {
     grid-template-columns: 1fr 1fr 450px 1fr 1fr;
   }
-  #canvas-container {
+  #canvas-container,
+  #canvas-alt-text {
     width: 450px;
     height: 450px;
   }
@@ -919,6 +927,9 @@ input[type="range"] {
     max-height: 90%;
     font-size: 0.85rem;
   }
+  .how-it-works-textbox section p:last-child {
+    padding-bottom: 1.5rem;
+  }
   .closeWorksModal {
     top: 0.1rem;
     right: 0.8rem;
@@ -1048,7 +1059,8 @@ input[type="range"] {
     width: 7rem;
   }
   /* --------------------------------------CANVAS----------------------------------------- */
-  #canvas-container {
+  #canvas-container,
+  #canvas-alt-text {
     width: 100vw;
     height: 100vw;
   }

@@ -13,70 +13,80 @@
         <h1>Hearing Hubble</h1>
       </div>
       <div class="image-picker-container">
-        <img class="left-arrow" src="./assets/icons/left-arrow.png" alt="" />
+        <img
+          tabindex="1"
+          class="left-arrow"
+          src="./assets/icons/left-arrow.png"
+          alt="Arrow pointing left"
+        />
         <div class="image-container">
           <img
             id="ngc1850-blue"
             class="not-selected"
             src="./assets/thumbnails/ngc1850-blue_tn.jpg"
-            alt="Image 7"
+            alt="NGC 1850"
           />
           <img
             id="ngc4535"
             class="not-selected left"
             src="./assets/thumbnails/ngc4535_tn.jpg"
-            alt="Image 9"
+            alt="NGC 4535"
           />
           <img
             id="ngc3603"
             class="not-selected selected"
             src="./assets/thumbnails/ngc3603_tn.jpg"
-            alt="Image 8"
+            alt="NGC 3603"
           />
           <img
             id="ngc4689"
             class="not-selected right"
             src="./assets/thumbnails/ngc4689_tn.jpg"
-            alt="Image 10"
+            alt="NGC 4689"
           />
           <img
             id="acos295"
             class="not-selected"
             src="./assets/thumbnails/acos295_tn.jpg"
-            alt="Image 1"
+            alt="ACO S 295"
           />
           <img
             id="c86"
             class="not-selected"
             src="./assets/thumbnails/c86_tn.jpg"
-            alt="Image 2"
+            alt="Caldwell 86 (C86)"
           />
           <img
             id="monkeyhead"
             class="not-selected"
             src="./assets/thumbnails/monkeyhead_tn.jpg"
-            alt="Image 5"
+            alt="Monkey's Head Nebula"
           />
           <img
             id="m94"
             class="not-selected"
             src="./assets/thumbnails/m94_tn.jpg"
-            alt="Image 3"
+            alt="Messier 94 (M94)"
           />
           <img
             id="messier4"
             class="not-selected"
             src="./assets/thumbnails/messier4_tn.jpg"
-            alt="Image 4"
+            alt="Messier 4 (M4)"
           />
           <img
             id="n44"
             class="not-selected"
             src="./assets/thumbnails/n44_tn.jpg"
-            alt="Image 6"
+            alt="N44"
           />
         </div>
-        <img class="right-arrow" src="./assets/icons/right-arrow.png" alt="" />
+        <img
+          tabindex="2"
+          class="right-arrow"
+          src="./assets/icons/right-arrow.png"
+          alt="Arrow pointing right"
+        />
       </div>
 
       <div class="nasa-logo-container">
@@ -93,27 +103,41 @@
         <h2 class="imageTitle" id="imageTitle"></h2>
         <p class="imageDescription" id="imageDescription"></p>
         <p>
-          <a href="" target="_blank" id="infoLink" class="infoLinkText"></a>
+          <a
+            tabindex="16"
+            target="_blank"
+            id="infoLink"
+            class="infoLinkText"
+          ></a>
         </p>
       </div>
-      <div class="canvas" id="canvas-container" title=""></div>
+      <div class="canvas">
+        <img
+          id="canvas-alt-text"
+          src="./assets/hubble-images/blank.png"
+          alt="TEST"
+        />
+        <div id="canvas-container"></div>
+      </div>
       <section class="controls">
         <div class="playhead">
           <div class="playhead-top-row-container">
             <p class="direction-header">Direction</p>
             <span class="controls-close-button">
-              <img src="./assets/icons/close-white.png" alt="" />
+              <img src="./assets/icons/close-white.png" alt="Close button" />
             </span>
           </div>
           <div class="playhead-options-box">
             <span class="playhead-options-row">
               <div
+                tabindex="3"
                 class="scanLine playhead-options-square playhead-type playhead-type-selected box-leftright"
                 id="leftright"
               >
                 <p>Right</p>
               </div>
               <div
+                tabindex="4"
                 class="scanLine playhead-options-square playhead-type box-updown"
                 id="updown"
               >
@@ -122,12 +146,14 @@
             </span>
             <span class="playhead-options-row">
               <div
+                tabindex="5"
                 class="scanLine playhead-options-square playhead-type box-cwccw"
                 id="cwccw"
               >
                 <p>Clockwise</p>
               </div>
               <div
+                tabindex="6"
                 class="scanLine playhead-options-square playhead-type box-outin"
                 id="outin"
               >
@@ -136,7 +162,7 @@
             </span>
           </div>
           <div class="reverse-option">
-            <div class="reverse-box reverse" id="reverse">
+            <div tabindex="7" class="reverse-box reverse" id="reverse">
               <p>Reverse</p>
             </div>
           </div>
@@ -144,14 +170,22 @@
         <div class="mappings">
           <div class="mapping-dropdown">
             <p class="mapping-dropdown-header">Data</p>
-            <select class="mapping-dropdown-options" id="mappingDropdown">
+            <select
+              tabindex="8"
+              class="mapping-dropdown-options"
+              id="mappingDropdown"
+            >
               <option value="brightness">Brightness</option>
               <option value="color">Color</option>
             </select>
           </div>
           <div class="mapping-dropdown">
             <p class="mapping-dropdown-header">Harmony</p>
-            <select class="mapping-dropdown-options" id="harmonyDropdown">
+            <select
+              tabindex="9"
+              class="mapping-dropdown-options"
+              id="harmonyDropdown"
+            >
               <option value="major">Happy</option>
               <option value="minor">Sad</option>
               <option value="major pentatonic">Relaxed</option>
@@ -169,7 +203,11 @@
           </div>
           <div class="mapping-dropdown">
             <p class="mapping-dropdown-header">Sound Wave</p>
-            <select class="mapping-dropdown-options" id="soundWaveDropdown">
+            <select
+              tabindex="10"
+              class="mapping-dropdown-options"
+              id="soundWaveDropdown"
+            >
               <option value="sine">Smooth</option>
               <option value="triangle">Gentle</option>
               <option value="sawtooth">Sharp</option>
@@ -178,7 +216,11 @@
           </div>
           <div class="mapping-dropdown">
             <p class="mapping-dropdown-header">Instrument</p>
-            <select class="mapping-dropdown-options" id="instrumentDropdown">
+            <select
+              tabindex="11"
+              class="mapping-dropdown-options"
+              id="instrumentDropdown"
+            >
               <option value="harp">Harp</option>
               <option value="piano">Piano</option>
               <option value="guitar">Guitar</option>
@@ -189,12 +231,12 @@
       <div class="play-speed-control-button">
         <div class="play-control-button-container">
           <div>
-            <button class="play-pause-button" id="playButton">
+            <button tabindex="13" class="play-pause-button" id="playButton">
               <img
                 id="play-pause-image"
                 src="./assets/icons/play_icon.svg"
                 class="play-pause-image"
-                alt=""
+                alt="Image that changes between play and pause"
               />
               <p class="play-button-text" id="play-button-text">Play</p>
             </button>
@@ -204,6 +246,7 @@
         <div class="speed-slider">
           <p class="speed-slider-text">Slow</p>
           <input
+            tabindex="12"
             type="range"
             min="0"
             max="100"
@@ -217,16 +260,17 @@
       <div class="share-how-container">
         <div class="share">
           <button
+            tabindex="14"
             id="openShareModal"
             class="openShareModal"
             onclick="saveSonification()"
           >
             Share
-            <img src="./assets/icons/share-icon.png" alt="" />
+            <img src="./assets/icons/share-icon.png" alt="Share symbol" />
           </button>
         </div>
         <div class="how-it-works">
-          <button id="openWorksModal" class="openWorksModal">
+          <button tabindex="15" id="openWorksModal" class="openWorksModal">
             How it works
           </button>
         </div>
@@ -242,19 +286,22 @@
           <p><strong>@NASA</strong>Hubble</p>
           <div class="nasa-social-icons">
             <a href="https://www.facebook.com/NASAHubble/" target="_blank">
-              <img src="./assets/icons/facebook.png" alt="" />
+              <img src="./assets/icons/facebook.png" alt="Facebook logo" />
             </a>
             <a href="https://www.instagram.com/NASAHubble/" target="_blank">
-              <img src="./assets/icons/instagram.png" alt="" />
+              <img src="./assets/icons/instagram.png" alt="Instagram logo" />
             </a>
             <a href="https://x.com/NASAHubble" target="_blank">
-              <img src="./assets/icons/twitterx.png" alt="" />
+              <img src="./assets/icons/twitterx.png" alt="X logo" />
             </a>
             <a
               href="https://www.youtube.com/playlist?list=PL3E861DC9F9A8F2E9"
               target="_blank"
             >
-              <img src="./assets/icons/youtube.png" alt="" />
+              <img src="./assets/icons/youtube.png" alt="Youtube logo" />
+            </a>
+            <a href="https://www.flickr.com/photos/nasahubble/" target="_blank">
+              <img src="./assets/icons/flickr.png" alt="Flickr logo" />
             </a>
           </div>
         </div>
@@ -308,8 +355,8 @@
             <br />
             <h3><strong>Harmony</strong></h3>
             <p>
-              This controls the mood by setting which set of musical notes that
-              are used to represent the data. Each choice corresponds to a
+              This controls the mood by setting which set of musical notes are
+              used to represent the data. Each choice corresponds to a
               particular musical scale.
             </p>
             <br />
@@ -329,7 +376,6 @@
             <p>
               Click the Share Button to pass along your sonification to friends!
             </p>
-            <br />
           </section>
         </div>
       </div>
@@ -340,13 +386,10 @@
     <script language="javascript" src="./libraries/p5/p5.sound.js"></script>
     <script language="javascript" src="./javascript/parameters.js"></script>
     <script language="javascript" src="./javascript/ui.js"></script>
-    <script language="javascript" src="./javascript/classes.js"></script>
     <script language="javascript" src="./javascript/Himage.js"></script>
     <script language="javascript" src="./javascript/Playhead.js"></script>
     <script language="javascript" src="./javascript/ImageSynth.js"></script>
-    <!-- <script language="javascript" src="./javascript/Stars.js"></script>  -->
     <script language="javascript" src="./javascript/StarSynth.js"></script>
-    <script language="javascript" src="./javascript/StarAnimator.js"></script>
     <script language="javascript" src="./javascript/sharing.js"></script>
     <script language="javascript" src="./javascript/modals.js"></script>
     <script language="javascript" src="./javascript/sketch.js"></script>

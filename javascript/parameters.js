@@ -1,6 +1,3 @@
-// const canvasWidth = 600;
-// const canvasHeight = 600;
-
 const canvasWidth = document.getElementById("canvas-container").offsetWidth;
 const canvasHeight = document.getElementById("canvas-container").offsetHeight;
 
@@ -9,20 +6,15 @@ const framerate = 30;
 const crossing_time_min = 1;
 const crossing_time_max = 90;
 
-let x = 0;
-let radius = 0;
-let angle = 0;
-
 let n_position = 0; // Normalized position
 let delta_n_position = 1 / 30 / framerate; //
 let line_alpha = 200; // Set the alpha value to 100 (out of 255)
 
-//let image_names = ["ngc1850-blue", "ngc4689", "acos295"]; // List of image names to be loaded
 let image_names = Array.from(
   document.querySelectorAll(".image-container img")
 ).map((element) => element.id);
+
 let himages = {}; // Dictionary to store the Himage objects
-// let playhead_type = 'leftright'; // Default playhead type
 let direction_sign = 1; // Default direction sign
 let pitch_mapping = "brightness"; // Default pitch mapping, brightness or color
 let playhead_type = "leftright"; // Default playhead type
@@ -52,27 +44,13 @@ const sort_dict = {
   cwccw: "theta_norm",
 };
 
-const noteNames = [
-  "C",
-  "C#",
-  "D",
-  "D#",
-  "E",
-  "F",
-  "F#",
-  "G",
-  "G#",
-  "A",
-  "A#",
-  "B",
-];
+const noteNames = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
 
 const midiMin = 48;
 const midiMax = 84;
 let sampleFileNames = [];
 let sampleNames = []; //numerical names of each star sound (MIDI numbers)
 let sampleDict = {}; //will contain names of each star sound and their samples
-// let starSounds = ["harp"]; //names of the star sounds
 let starsOn = true; //default trigger stars to false
 let max_star_volume = 0.5; //default max star volume
 let lp_cutoff_min = 500; //default min cutoff frequency for low pass filter

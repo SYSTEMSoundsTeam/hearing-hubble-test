@@ -1,3 +1,13 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////
+let url = "https://systemsoundsteam.github.io/hearing-hubble-test/";  // SET THIS TO URL OF PAGE HOSTING THE IFRAME
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+let shareLink = document.getElementById("shareLink");
+let localUrl = "127.0.0.1:5500/app/index.html"; //only used for testing
+let shareUrl = window.location.href;
+let savedSonification;
+
+
 //--------------------------------ARRAYS--------------------------------------------//
 let imagesArr = Array.from(
   document.querySelectorAll(".image-container img")
@@ -20,27 +30,15 @@ let soundWaveArr = Array.from(document.getElementById("soundWaveDropdown")).map(
 let instrumentArr = Array.from(
   document.getElementById("instrumentDropdown")
 ).map((element) => element.value);
-let shareLink = document.getElementById("shareLink");
-let localUrl = "127.0.0.1:5500/app/index.html";
-let githubUrl = "https://systemsoundsteam.github.io/hearing-hubble-test/";
-let shareUrl = window.location.href;
-let savedSonification;
-// console.log(soundWaveArr);
+
+
 
 //--------------------------------LOAD SONIFICATION--------------------------------//
 
-// const shareUrl = window.location.href; //Need to change this when it's in an iframe
-// let shareUrl = "http://127.0.0.1:5500/app/index.html?1-2-true-0-2-0-0-21"; //Test URL
-// let shareUrl = "";
-
 if (shareUrl.includes("?")) {
   let paramsArr = shareUrl.split("?")[1].split("-"); //Get the parameters from the URL
-  // console.log((paramsArr[0] - 1 + imagesArr.length) % imagesArr.length);
-  // console.log(paramsArr[0]);
-  // console.log((paramsArr[0] + 1 + imagesArr.length) % imagesArr.length);
   imagePickerDeselectAll(); //Deselect all images
   image_name = imagesArr[paramsArr[0]].id; //Set image name
-  console.log("1", paramsArr[0]);
 
   imagesArr[parseInt(paramsArr[0])].classList.add("selected"); //Add selected class to image
   imagesArr[
@@ -50,11 +48,6 @@ if (shareUrl.includes("?")) {
     (parseInt(paramsArr[0]) + 1 + imagesArr.length) % imagesArr.length
   ].classList.add("right");
 
-  // console.log(imagesArr[paramsArr[0] + 1]);
-
-  // imagesArr[
-  //   (paramsArr[0] + 1 + imagesArr.length) % imagesArr.length
-  // ].classList.add("right"); //Add right class to image
   playhead_type = scanLinesArr[paramsArr[1]]; //Set playhead type
   deselectAll(); //Deselect all scanlines
   document
@@ -91,15 +84,12 @@ function saveSonification() {
   let harmonyIndex = harmonyArr.indexOf(harmonyDropdown.value);
   let soundWaveIndex = soundWaveArr.indexOf(soundWaveDropdown.value);
   let instrumentIndex = instrumentArr.indexOf(instrumentDropdown.value);
-  let savedSonification = `${githubUrl}?${imageIndex}-${scanLineIndex}-${reverse}-${mappingIndex}-${harmonyIndex}-${soundWaveIndex}-${instrumentIndex}-${sliderValue}`;
+  let savedSonification = `${url}?${imageIndex}-${scanLineIndex}-${reverse}-${mappingIndex}-${harmonyIndex}-${soundWaveIndex}-${instrumentIndex}-${sliderValue}`;
   shareLink.innerHTML = savedSonification;
-  console.log(savedSonification);
-  // window.location.href = url;
 }
 
 function copySonificationLink() {
   let copyText = shareLink.innerHTML;
-  console.log(copyText);
   document.getElementById("copyButton").innerText = "Copied!";
   shareLink.classList.add("copy-animation");
   navigator.clipboard.writeText(copyText);

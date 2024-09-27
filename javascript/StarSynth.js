@@ -79,7 +79,6 @@ class StarSynth {
         };
 
         this.star_data = sortedData;
-        //console.log('sorted by ' + sort_param);
     }
 
     sortStarsMatrix() {
@@ -113,7 +112,6 @@ class StarSynth {
         });
     
         this.star_data = sortedData;
-        //console.log(`sorted by ${sort_param}`);
     }
 
     mapValueToMidi(value) {
@@ -139,7 +137,6 @@ class StarSynth {
     }
     
     removeOldStars() {
-        //this.stars_to_animate = this.stars_to_animate.filter(star => direction_sign*(n_position - star.n_position) <= t_fade);
         this.stars_to_animate = this.stars_to_animate.filter(star => direction_sign*(t - star.t) <= 2*t_fade);
     }
 
@@ -188,14 +185,6 @@ class StarSynth {
                 }
                 
             }
-            //this.star_indexes_to_trigger = this.filterLargestStars(this.star_indexes_to_trigger, 100);
-
-            // if (this.star_indexes_to_trigger.length > 0) {
-                
-            //     console.log('triggering star ' + this.star_indexes_to_trigger);
-            //     console.log('triggering star ' + this.star_data.id[this.star_indexes_to_trigger]);
-            // }
-
             this.removeOldStars();
             
             return;
@@ -209,7 +198,6 @@ class StarSynth {
             const y = map(star.y_norm, 0, 1, 0, this.himage.height) + this.himage.heightShift;
             const size = 50*star.size_norm*pow((t - star.t)/t_fade, 1);
             const alpha = 255 * Math.exp(-Math.pow((t - star.t), 2) / (2 * Math.pow(t_fade, 2)));
-            //fill(255, 255, 255, alpha);
             noFill();
             strokeWeight(2);
             stroke(255, 255, 255, alpha); // Set stroke color with opacity
@@ -224,19 +212,14 @@ class StarSynth {
             
             const size = this.star_data.size_norm[index];
             let pitch_value = size;
-            //const midiNote = int(map(size**2, 0,  1, 58, 70)); //map the star's size to a midi note
             if (pitch_mapping == 'brightness') {
                 pitch_value = size**0.5;
             } else if (pitch_mapping == 'color') {
                 pitch_value = this.star_data.color[index]
             }
-            //console.log(pitch_value,pitch_mapping);
             const midiNoteIndex = int(map(pitch_value, 0,  1, 0, this.midiNumbers.length-1)); //map the star's size to an index in the midiNumbers array
             const midiNote = this.midiNumbers[midiNoteIndex];
             const sampleIndex = midiNote - midiMin;
-            //const sample = sampleDict[soundName][sampleIndex];
-            //sample.setVolume(map(size**2, 0,  1, 0, max_star_volume)); //map the star's size to the volume
-            //sample.play();
             const volume = map(size**1, 0, 1, 0, max_star_volume);
 
             playSound(buffers[sampleIndex], volume); 
@@ -293,12 +276,6 @@ class StarSynth {
 }
 
 
-
-function initAudio() {
-    createSampleNames();
-    //initAllSamples();
-}
-
 function createSampleNames() {
     for (let midi = midiMin; midi<=midiMax; midi++){
       note = midi2note(midi)
@@ -314,26 +291,6 @@ function getSoundPaths(soundName) {
       }
     return soundPaths
 }
-
-
-// function initSamples(soundName) {
-//     samples = [];
-//     for (let i = 0; i < sampleNames.length; i++) {
-//       note = loadSound('./sounds/' + soundName +'/' + sampleFileNames[i] + '.mp3');
-//       //note.setVolume(0.5);
-//       samples.push(note);
-//     }
-//     samplesLoaded = true;
-//     return samples
-//   }
-
-// function initAllSamples() {
-//     for (let i = 0; i < starSounds.length; i++) {
-//         console.log('loaded ' + starSounds[i] + ' samples');
-//         let samples = initSamples(starSounds[i]);
-//         sampleDict[starSounds[i]] = samples;
-//     }   
-// }
 
 function loadSoundBuffers(soundName){
     soundPaths = getSoundPaths(soundName);

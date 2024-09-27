@@ -30,35 +30,7 @@ class Playhead {
     }
 
     reverse() {
-        direction_sign *= -1;
-        // switch (direction) {
-        //     case 'left':
-        //         direction = 'right';
-        //         break;
-        //     case 'right':
-        //         direction = 'left';
-        //         break;  
-        //     case 'up':  
-        //         direction = 'down';
-        //         break;  
-        //     case 'down':                
-        //         direction = 'up';
-        //         break;  
-        //     case 'ccw': 
-        //         direction = 'cw';
-        //         break;  
-        //     case 'cw':
-        //         direction = 'ccw';
-        //         break;  
-        //     case 'in':  
-        //         direction = 'out';
-        //         break;  
-        //     case 'out':
-        //         direction= 'in';
-        //         break;
-        // }
-        // console.log('switched to ' + direction);    
-            
+        direction_sign *= -1; 
     }
 
     draw() {
@@ -101,15 +73,11 @@ class Playhead {
         let y = this.himage.heightShift + this.himage.height/2;
         let radius = n_position * sqrt(this.himage.width**2 + this.himage.height**2) / 2;
 
-        //blendMode(DODGE); // Set the blend mode to DODGE
-
-
         noFill(); // No fill for the circle, just the outline
         stroke(255, 255, 255, line_alpha); // Red color for the circle outline
         strokeWeight(3); // Set the stroke width 
 
         ellipse(x, y, radius * 2, radius * 2);
-        //blendMode(BLEND); // Reset the blend mode to BLEND
     }
 
     drawPolar() {

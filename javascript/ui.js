@@ -1,5 +1,3 @@
-//Image Dropdown
-//https://codepen.io/aybukeceylan/pen/RwrRPoO
 
 let imageSelectorArr = Array.from(
   document.querySelectorAll(".image-container img")
@@ -9,7 +7,7 @@ let rightArrow = document.querySelector(".right-arrow");
 let infoTitle = document.getElementById("imageTitle");
 let infoDescription = document.getElementById("imageDescription");
 let infoLink = document.getElementById("infoLink");
-let canvasAltText = document.getElementById("canvas-container");
+let canvasAltText = document.getElementById("canvas-alt-text");
 
 let image_name =
   imageSelectorArr[
@@ -24,82 +22,19 @@ function updateImageInfo(himage) {
   infoDescription.innerHTML = himage.caption;
   infoLink.href = himage.link;
   infoLink.innerHTML = "Learn More";
-  canvasAltText.title = himage.alt;
+  canvasAltText.alt = himage.alt;
 }
 
-// let imageSelecting = [leftArrow, rightArrow];
-
-// imageSelecting.forEach((direction) => {
-//   direction.addEventListener("click", () => {
-//     console.log(direction);
-//   });
-// });
-
-// imageSelectorArr.forEach((element) => {
-//   element.addEventListener("click", () => {
-//     if (element.classList.contains("left")) {
-//       let currentIndex = imageSelectorArr.findIndex((element) =>
-//         element.classList.contains("selected")
-//       );
-//       let newLeft =
-//         (currentIndex - 2 + imageSelectorArr.length) % imageSelectorArr.length;
-//       let newSelected =
-//         (currentIndex - 1 + imageSelectorArr.length) % imageSelectorArr.length;
-//       let currentRight =
-//         (currentIndex + 1 + imageSelectorArr.length) % imageSelectorArr.length;
-//       image_name = imageSelectorArr[newSelected].id;
-
-//       imageSelectorArr[currentIndex].classList.remove("selected");
-//       imageSelectorArr[newSelected].classList.remove("left");
-//       imageSelectorArr[currentRight].classList.remove("right");
-//       imageSelectorArr[newLeft].classList.add("left");
-//       imageSelectorArr[newSelected].classList.add("selected");
-//       imageSelectorArr[currentIndex].classList.add("right");
-
-//       if (isPlaying) {
-//         imageSynth.stop();
-//         setImage(image_name);
-//         imageSynth.start();
-//       } else {
-//         setImage(image_name);
-//       }
-//     } else if (element.classList.contains("right")) {
-//       let currentIndex = imageSelectorArr.findIndex((element) =>
-//         element.classList.contains("selected")
-//       );
-//       let newRight = (currentIndex + 2) % imageSelectorArr.length;
-//       let newSelected = (currentIndex + 1) % imageSelectorArr.length;
-//       let currentLeft =
-//         (currentIndex - 1 + imageSelectorArr.length) % imageSelectorArr.length;
-//       image_name = imageSelectorArr[newSelected].id;
-
-//       imageSelectorArr[currentIndex].classList.remove("selected");
-//       imageSelectorArr[newSelected].classList.remove("right");
-//       imageSelectorArr[currentLeft].classList.remove("left");
-//       imageSelectorArr[newRight].classList.add("right");
-//       imageSelectorArr[newSelected].classList.add("selected");
-//       imageSelectorArr[currentIndex].classList.add("left");
-
-//       if (isPlaying) {
-//         imageSynth.stop();
-//         setImage(image_name);
-//         imageSynth.start();
-//       } else {
-//         setImage(image_name);
-//       }
-//     }
-//   });
-// });
 function resetImage(image_name) {
-    if (isPlaying) {
-        imageSynth.stop();
-        setImage(image_name);
-        imageSynth.start();
-      } else {
-        setImage(image_name);
-      }
-      playhead.setSpeed(sliderValue);
-      updateImageInfo(himage);
+  if (isPlaying) {
+    imageSynth.stop();
+    setImage(image_name);
+    imageSynth.start();
+  } else {
+    setImage(image_name);
+  }
+  playhead.setSpeed(sliderValue);
+  updateImageInfo(himage);
 }
 
 leftArrow.addEventListener("click", function (event) {
@@ -161,13 +96,13 @@ playButton.addEventListener("click", () => {
     playButtonText.innerHTML = "Pause";
     playPauseImage.src = "./assets/icons/pause_icon.svg";
     isPlaying = true;
-    // loop();
+
     imageSynth.start();
   } else {
     playButtonText.innerHTML = "Play";
     playPauseImage.src = "./assets/icons/play_icon.svg";
     isPlaying = false;
-    //noLoop();
+
     imageSynth.stop();
   }
 });
@@ -197,10 +132,9 @@ playheadType.forEach((type) => {
     deselectAll(); // First, deselect all boxes
     type.classList.add("playhead-type-selected");
     playhead_type = type.id;
-    //this should be refactored
+
     imageSynth.chooseOscillatorData();
     imageSynth.makeAmpFreqArrays();
-    //himage.sortStars(playhead);
     starSynth.sortStars(playhead);
   });
 });
@@ -259,7 +193,6 @@ let instrumentDropdown = document.getElementById("instrumentDropdown");
 let soundName = instrumentDropdown.value;
 instrumentDropdown.addEventListener("change", (event) => {
   soundName = event.target.value;
-  console.log(soundName);
   loadSoundBuffers(soundName);
 });
 
@@ -276,9 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   controlsCloseButton.addEventListener("click", function () {
-    console.log("close");
     controls.classList.remove("show");
     controlsCloseButton.classList.remove("show");
   });
-  //Try something where it checks if you press not on the playhead or mapping divs
 });
